@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Weather_Web_App/static/css/main.dd08fa1e.css",
+    "main.js": "/Weather_Web_App/static/js/main.b8be9f1c.js",
+    "static/js/787.d9312eb8.chunk.js": "/Weather_Web_App/static/js/787.d9312eb8.chunk.js",
+    "static/media/cloud.jpg": "/Weather_Web_App/static/media/cloud.c5838d86e5a6afa2f196.jpg",
+    "static/media/rain.jpg": "/Weather_Web_App/static/media/rain.6b8cd7e59a1415a8ffdc.jpg",
+    "static/media/clear.jpg": "/Weather_Web_App/static/media/clear.4aa26c9b5b9ab0bf20fe.jpg",
+    "static/media/sun.jpg": "/Weather_Web_App/static/media/sun.ae8e36e21739cc32e595.jpg",
+    "static/media/wallpaperflare.com_wallpaper_3.jpg": "/Weather_Web_App/static/media/wallpaperflare.com_wallpaper_3.005d0197602f421f7455.jpg",
+    "index.html": "/Weather_Web_App/index.html",
+    "main.dd08fa1e.css.map": "/Weather_Web_App/static/css/main.dd08fa1e.css.map",
+    "main.b8be9f1c.js.map": "/Weather_Web_App/static/js/main.b8be9f1c.js.map",
+    "787.d9312eb8.chunk.js.map": "/Weather_Web_App/static/js/787.d9312eb8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd08fa1e.css",
+    "static/js/main.b8be9f1c.js"
+  ]
+}
