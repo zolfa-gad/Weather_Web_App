@@ -16,10 +16,6 @@ const DaysDegreeSection = ({ daysForecast }) => {
           />
         ))}
 
-        {/* <DayDegrees />
-        <DayDegrees />
-        <DayDegrees />
-        <DayDegrees /> */}
       </div>
     </div>
   );

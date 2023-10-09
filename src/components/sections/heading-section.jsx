@@ -10,11 +10,9 @@ const HeadingSection = ({
   locationInputValue,
   onSubmit,
 }) => {
-  // console.log(location.name, "location");
-  // const date = { ...location.localtime.split(" ")[0].split("-") }; //year month date
   console.log(new Date(location.localtime).toDateString(), "final date");
   return (
-    <div className=" p-lg-4 py-4 w-100 d-flex flex-column justify-content-center align-items-center gap-4 ">
+    <div className=" py-4 w-100 d-flex flex-column justify-content-center align-items-center gap-4 ">
       <div className=" search-input py-2">
         <FormControl
           className="shadow fs-4"
@@ -28,12 +26,11 @@ const HeadingSection = ({
         />
       </div>
 
-      <div className=" bg-light-opacity-50 border d-flex flex-column justify-content-center align-items-center p-3 p-md-5 py-4 shadow rounded-2 gap-3">
+      <div className=" bg-light-opacity-50 border d-flex flex-column justify-content-center align-items-center p-3 p-md-5 py-4 shadow rounded-2 gap-3 search-input">
         <div className="location d-flex justify-content-center align-items-center gap-md-3">
           <h2 className="croissant-font fs-1 fw-bold">{location.name}</h2>
-          <span className="  fw-light fs-3 " style={{width:'100px'}}>
+          <span className="  fw-light fs-3 " style={{ width: "100px" }}>
             {new Date(location.localtime).toDateString()}
-            {/* {`${date[2]}.${date[1]}.${date[0]}`} */}
           </span>
         </div>
         <div className="d-flex justify-content-center align-items-center gap-3">
@@ -56,29 +53,3 @@ const HeadingSection = ({
 };
 
 export default HeadingSection;
-{
-  /* <div>
-          <img src={current.condition.icon} style={{ width: "100px" }} />
-        </div> */
-}
-
-{
-  /* <span className="fs-3  satisfy-font">
-            {forecastDay[0].day.maxtemp_c}&#176;
-          </span> */
-}
-{
-  /* <span className="fs-3  satisfy-font">
-            {forecastDay[0].day.mintemp_c}&#176;
-          </span> */
-}
-
-{
-  /* <span className="fs-1 fw-bolder croissant-font">
-{current.temp_c}&#176;
-</span> */
-}
-
-{
-  /* <span className="text-warning  fw-light" >{new Date().toLocaleDateString()}</span> */
-}

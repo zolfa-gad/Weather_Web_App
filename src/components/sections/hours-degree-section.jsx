@@ -15,19 +15,7 @@ const HoursDegreeSection = ({ hoursForecast,timeZone }) => {
           />
         ))}
 
-        {/* <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees />
-        <HourDegrees /> */}
+      
       </div>
     </div>
   );

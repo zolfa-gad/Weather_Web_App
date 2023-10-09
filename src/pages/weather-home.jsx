@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
-import DaysDegreeSection from "./days-degree-section";
-import HoursDegreeSection from "./hours-degree-section";
-import HeadingSection from "./heading-section";
+import DaysDegreeSection from "../components/sections/days-degree-section";
+import HoursDegreeSection from "../components/sections/hours-degree-section";
+import HeadingSection from "../components/sections/heading-section";
 import axios from "axios";
-import sunBG from "../../images/sun.jpg";
-import rainBG from "../../images/rain.jpg";
-import cloudBG from "../../images/cloud.jpg";
-import clearBG from "../../images/clear.jpg";
+import sunBG from "../images/sun.jpg";
+import rainBG from "../images/rain.jpg";
+import overcastBG from "../images/cloud.jpg";
+import clearBG from "../images/clear.jpg";
+import cloudBG from "../images/overcast.jpg";
 
 const WeatherHome = () => {
   const apiKey = "ac6361c16d014b41b20161157232709";
@@ -57,22 +58,17 @@ const WeatherHome = () => {
   };
 
   const [forecast, setForecastData] = useState(initialForecast);
-  const [locationInput, setLocationInput] = useState("sohag");
+  const [locationInput, setLocationInput] = useState("Egypt");
   const [backgroundImage, setBackgroundState] = useState(clearBG);
+  const [backgroundColor, setBackgroundColorState] = useState("lightblue");
 
   useEffect(() => {
-    // setBackgroundImage();
     if (locationInput.length >= 3) {
       getDataFromApi();
-    } else if (locationInput.length == 0) {
-      // setLocationInput("sohag");
-      // getDataFromApi();
+    } else {
+      setLocationInput("");
     }
   }, [locationInput]);
-
-  useEffect(() => {
-    setBackgroundImage();
-  }, [forecast]);
 
   async function getDataFromApi() {
     const forecastURL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${locationInput}&days=7&aqi=no&alerts=yes`;
@@ -88,38 +84,28 @@ const WeatherHome = () => {
       });
   }
 
-  function setBackgroundImage() {
+  useEffect(() => {
     let weatherCondition = forecast.current.condition.text;
-    // const background = document.getElementsByClassName("background")[0];
-    // sunny
-    // partly cloudy
-    // overcast
-    // clear
-    // patch light drizzle
-    // mist
-    // light rain shower
-    // patchy rain possible
-    // background.style.backgroundImage = "url('../../images/sunny.jpg')";
-    console.log(weatherCondition, "condition");
     if (weatherCondition.toLocaleLowerCase().includes("clear")) {
       setBackgroundState(clearBG);
-      // background.style.backgroundColor = "lightblue";
+      setBackgroundColorState("lightblue");
     } else if (weatherCondition.toLocaleLowerCase().includes("sun")) {
       setBackgroundState(sunBG);
-      // background.style.backgroundColor = "orange";
+      setBackgroundColorState("antiquewhite");
     } else if (weatherCondition.toLocaleLowerCase().includes("cloud")) {
       setBackgroundState(cloudBG);
-      // background.style.backgroundColor = "grey";
+      setBackgroundColorState("lightgrey");
     } else if (weatherCondition.toLocaleLowerCase().includes("rain")) {
       setBackgroundState(rainBG);
-      // background.style.backgroundColor = "lightgrey";
+      setBackgroundColorState("darkseagreen");
     } else if (weatherCondition.toLocaleLowerCase().includes("overcast")) {
-      setBackgroundState(clearBG);
-      // background.style.backgroundColor = "lightgreen";
+      setBackgroundState(overcastBG);
+      setBackgroundColorState("grey");
     } else {
-      // background.style.backgroundColor = "black";
+      setBackgroundState(clearBG);
+      setBackgroundColorState("lightblue");
     }
-  }
+  }, [forecast]);
 
   function onLocationInputChange(event) {
     console.log(event.target.value);
@@ -127,20 +113,21 @@ const WeatherHome = () => {
   }
 
   function onSubmitLocation() {
-    console.log("jsdhjsdhfsdjfh");
     setLocationInput("");
   }
 
   return (
-    <div className="Home h-100 p-sm-4 p-2">
+    <div
+      className="Home h-100 p-sm-4 p-2 "
+      style={{ backgroundColor: backgroundColor }}
+    >
       <Container
         className=" h-100  shadow  rounded-4 d-flex flex-column justify-content-center align-items-center "
         style={{
           backgroundImage: `url(${backgroundImage})`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          objectFit:'cover'
-          // background: `url(${sunnyBackground})`,
+          objectFit: "cover",
         }}
       >
         <HeadingSection
